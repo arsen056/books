@@ -1,0 +1,14 @@
+.search {
+  width: 100%;
+  outline: 0;
+  color: #000;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  font-size: inherit;
+}
+
+.search:focus {
+  border: 2px solid cadetblue;
+}

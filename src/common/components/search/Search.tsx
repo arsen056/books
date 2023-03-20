@@ -1,8 +1,8 @@
-import { Input } from '@chakra-ui/react';
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {fetchBooks, setSearchValue} from "features/books";
 import { useDebounce } from "common/hooks/useDebounce";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
+import s from './Search.module.scss'
 
 export const Search = () => {
 
@@ -19,5 +19,5 @@ export const Search = () => {
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
 
-  return <Input value={value} onChange={onChange} placeholder='Search...' />
+  return <input className={s.search} value={value} onChange={onChange} placeholder='Enter value...' />
 };
