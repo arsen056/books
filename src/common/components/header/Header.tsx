@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Container} from "common/components/container";
 import {Search} from "common/components/search";
 
-export const Header = () => {
+export const Header = memo(() => {
   return (
     <header>
       <Container>
@@ -11,4 +11,4 @@ export const Header = () => {
       </Container>
     </header>
   );
-};
+});

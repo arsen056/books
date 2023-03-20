@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IResponseBooks} from "common/types/IResponseBooks";
-import {ISearchParams} from "common/types/ISearchParams";
+import {IResponseBooks, ISearchParams} from "common/types";
+import {API} from "api/api";
+import {RootStateType, setError, setIsLoading} from "app";
 
 const initialState: IResponseBooks & ISearchParams = {
   kind: '',
@@ -28,15 +29,26 @@ export const fetchBooks = createAsyncThunk(
   'books/fetch',
   async (_, {dispatch, getState}) => {
 
+    const state = getState() as RootStateType
+    const searchParam = state.books.searchValue
 
     try {
+      dispatch(setIsLoading(true))
+      const res = await API.getBooks({q: searchParam, maxResults: 30})
 
+      if (!res.data.totalItems) {
+        dispatch(setIsLoading(false))
+        dispatch(setError('Enter the correct value'))
+        return
+      }
+
+      dispatch(setBooks(res.data))
     } catch (e) {
-
+      console.log(e)
     }
-
+    dispatch(setIsLoading(false))
   }
 )
 
 export const booksReducer = slice.reducer
-export const {setSearchValue} = slice.actions
+export const {setSearchValue, setBooks} = slice.actions

@@ -37,6 +37,7 @@ export interface IVolumeInfo {
     smallThumbnail: string;
     thumbnail: string;
   };
+  description: string,
   language: string;
   previewLink: string;
   infoLink: string;

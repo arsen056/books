@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoading: true,
+  isLoading: false,
   error: '' ,
 }
 
@@ -19,3 +19,4 @@ const slice = createSlice({
 })
 
 export const appReducer = slice.reducer
+export const {setIsLoading, setError} = slice.actions

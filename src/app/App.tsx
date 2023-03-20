@@ -1,17 +1,16 @@
-import React, {useEffect} from 'react';
-import { Header } from "common/components/header";
-import {Book} from "common/components/book";
-import {API} from "api/api";
+import React from 'react';
+import {Header} from "common/components/header";
+import {Books} from "features/books/";
+import {ProgressBar} from "common/components/progressBar/ProgressBar";
+import {Snackbar} from "common/components/snackbar/Snackbar";
 
 export function App() {
-  useEffect(() => {
-    API.getBooks({q: ''})
-  }, [])
-
   return (
-    <div className="App">
+    <div className="app">
+      <ProgressBar/>
       <Header/>
-      <Book/>
+      <Books/>
+      <Snackbar/>
     </div>
   );
 }
