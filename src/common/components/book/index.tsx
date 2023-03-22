@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {Card, CardBody, Center, Heading, Image, Stack, Text} from "@chakra-ui/react";
 import {sliceDescription} from "common/utils/sliceDescription";
+import defaultImg from 'common/assets/imageDefault.jpg'
 
 type Props = {
   title: string,
@@ -12,13 +13,15 @@ export const Book: FC<Props> = ({title, img, description}) => {
 
   const shortDescription = sliceDescription(description)
 
+  const image = img ? img : defaultImg
+
   return (
     <Card maxW='sm'>
       <CardBody>
         <Center>
           <Image
-            src={img}
-            alt='Green double couch with wooden legs'
+            src={image}
+            alt='Book img'
             borderRadius='lg'
           />
         </Center>
