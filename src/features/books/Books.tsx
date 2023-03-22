@@ -5,6 +5,7 @@ import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {Container} from "common/components/container";
 import {Book} from "common/components/book";
 import {SimpleGrid} from "@chakra-ui/react";
+import s from './Books.module.scss'
 
 export const Books = memo(() => {
   const dispatch = useAppDispatch();
@@ -18,10 +19,12 @@ export const Books = memo(() => {
   />)
 
   return (
-    <Container>
-      <SimpleGrid minChildWidth='300px' spacing='40px'>
-        {booksMap}
-      </SimpleGrid>
-    </Container>
+    <main className={s.books}>
+      <Container>
+        <SimpleGrid minChildWidth='250px' spacing='10'>
+          {booksMap}
+        </SimpleGrid>
+      </Container>
+    </main>
   );
 });

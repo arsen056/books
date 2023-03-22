@@ -1,14 +1,17 @@
 import React, {FC} from 'react';
-import s from './Book.module.scss'
 import {Card, CardBody, Center, Heading, Image, Stack, Text} from "@chakra-ui/react";
+import {sliceDescription} from "common/utils/sliceDescription";
 
 type Props = {
-  title?: string,
+  title: string,
   description: string
-  img?: string
+  img: string
 }
 
 export const Book: FC<Props> = ({title, img, description}) => {
+
+  const shortDescription = sliceDescription(description)
+
   return (
     <Card maxW='sm'>
       <CardBody>
@@ -21,8 +24,8 @@ export const Book: FC<Props> = ({title, img, description}) => {
         </Center>
 
         <Stack mt='6' spacing='3'>
-          <Heading size='md'>{title}</Heading>
-          <Text>{description}</Text>
+          <Heading size='sm'>{title}</Heading>
+          <Text fontSize='md'>{shortDescription}</Text>
         </Stack>
       </CardBody>
     </Card>

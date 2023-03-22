@@ -34,7 +34,7 @@ export const fetchBooks = createAsyncThunk(
 
     try {
       dispatch(setIsLoading(true))
-      const res = await API.getBooks({q: searchParam, maxResults: 30})
+      const res = await API.getBooks({q: searchParam, maxResults: 28})
 
       if (!res.data.totalItems) {
         dispatch(setIsLoading(false))
