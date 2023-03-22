@@ -1,10 +1,10 @@
 export interface IResponseBooks {
   kind: string;
   totalItems: number;
-  items: Items[];
+  items: IBook[];
 }
 
-export interface Items {
+export interface IBook {
   kind: string;
   id: string;
   etag: string;
