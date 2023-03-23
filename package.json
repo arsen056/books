@@ -1,6 +1,7 @@
 {
   "name": "books",
   "version": "0.1.0",
+  "homepage": "arsen056.github.io/books/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "node-sass": "^8.0.0"
   }
 }
