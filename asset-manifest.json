@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/arsen056.github.io/books/static/css/main.b6ef8542.css",
-    "main.js": "/arsen056.github.io/books/static/js/main.118ed3ad.js",
-    "static/js/787.f5db70bc.chunk.js": "/arsen056.github.io/books/static/js/787.f5db70bc.chunk.js",
-    "static/media/headerbg.jpg": "/arsen056.github.io/books/static/media/headerbg.3a6e5b2a72bb0d3e9d7f.jpg",
-    "index.html": "/arsen056.github.io/books/index.html",
-    "main.b6ef8542.css.map": "/arsen056.github.io/books/static/css/main.b6ef8542.css.map",
-    "main.118ed3ad.js.map": "/arsen056.github.io/books/static/js/main.118ed3ad.js.map",
-    "787.f5db70bc.chunk.js.map": "/arsen056.github.io/books/static/js/787.f5db70bc.chunk.js.map"
+    "main.css": "/books/static/css/main.348832e8.css",
+    "main.js": "/books/static/js/main.6477683f.js",
+    "static/js/787.f5db70bc.chunk.js": "/books/static/js/787.f5db70bc.chunk.js",
+    "static/media/headerbg.jpg": "/books/static/media/headerbg.3a6e5b2a72bb0d3e9d7f.jpg",
+    "index.html": "/books/index.html",
+    "main.348832e8.css.map": "/books/static/css/main.348832e8.css.map",
+    "main.6477683f.js.map": "/books/static/js/main.6477683f.js.map",
+    "787.f5db70bc.chunk.js.map": "/books/static/js/787.f5db70bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6ef8542.css",
-    "static/js/main.118ed3ad.js"
+    "static/css/main.348832e8.css",
+    "static/js/main.6477683f.js"
   ]
 }
