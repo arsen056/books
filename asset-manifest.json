@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/arsen056.github.io/books/static/css/main.bbadc498.css",
+    "main.js": "/arsen056.github.io/books/static/js/main.118ed3ad.js",
+    "static/js/787.f5db70bc.chunk.js": "/arsen056.github.io/books/static/js/787.f5db70bc.chunk.js",
+    "static/media/headerbg.jpg": "/arsen056.github.io/books/static/media/headerbg.3a6e5b2a72bb0d3e9d7f.jpg",
+    "index.html": "/arsen056.github.io/books/index.html",
+    "main.bbadc498.css.map": "/arsen056.github.io/books/static/css/main.bbadc498.css.map",
+    "main.118ed3ad.js.map": "/arsen056.github.io/books/static/js/main.118ed3ad.js.map",
+    "787.f5db70bc.chunk.js.map": "/arsen056.github.io/books/static/js/787.f5db70bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bbadc498.css",
+    "static/js/main.118ed3ad.js"
+  ]
+}
