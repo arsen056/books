@@ -1,14 +1,20 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IBook, IResponseBooks, ISearchParams} from "common/types";
+import {IBook, IResponseBooks} from "common/types";
 import {API} from "api/api";
 import {RootStateType, setError, setIsLoading} from "app";
+import {IBooksInitState} from "common/types/IBooksInitState";
 
-const initialState: IResponseBooks & ISearchParams = {
+const initialState: IBooksInitState = {
   kind: '',
   totalItems: 0,
   items: [],
-  searchValue: '',
-  startIndex: 20
+  searchParams: {
+    searchValue: '',
+    startIndex: 20,
+    maxResults: 20,
+    category: '',
+    orderBy: 'relevance'
+  }
 }
 
 const slice = createSlice({
@@ -21,29 +27,32 @@ const slice = createSlice({
       state.items = action.payload.items
     },
     setSearchValue: (state, action: PayloadAction<string>) => {
-      state.searchValue = action.payload
-      state.startIndex = 0
+      state.searchParams.searchValue = action.payload
+      state.searchParams.startIndex = 0
     },
     showMore: (state, action: PayloadAction<IBook[]>) => {
       state.items.push(...action.payload)
     },
     setStartIndex: (state, action: PayloadAction<number>) => {
-      state.startIndex = action.payload
-    }
+      state.searchParams.startIndex = action.payload
+    },
+    setCategory: (state, action: PayloadAction<string>) => {
+      state.searchParams.category = action.payload
+    },
   }
 })
 
 export const fetchBooks = createAsyncThunk(
   'books/fetch',
   async (_, {dispatch, getState}) => {
-
+    console.log('fetch')
     const state = getState() as RootStateType
-    const searchParam = state.books.searchValue
-    const startIndex = state.books.startIndex
+
+    const {searchValue, category, startIndex, ...rest} = state.books.searchParams
 
     try {
       dispatch(setIsLoading(true))
-      const res = await API.getBooks({q: `${searchParam}`, startIndex, maxResults: 20})
+      const res = await API.getBooks({q: `${category}:${searchValue}`, startIndex, ...rest})
 
       if (!res.data.totalItems) {
         dispatch(setIsLoading(false))
@@ -68,4 +77,4 @@ export const fetchBooks = createAsyncThunk(
 )
 
 export const booksReducer = slice.reducer
-export const {setSearchValue, setBooks, showMore, setStartIndex} = slice.actions
+export const {setSearchValue, setBooks, showMore, setStartIndex, setCategory} = slice.actions

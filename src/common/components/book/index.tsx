@@ -7,30 +7,31 @@ type Props = {
   title: string,
   description: string
   img: string
+  category?: string[]
 }
 
-export const Book: FC<Props> = ({title, img, description}) => {
-
+export const Book: FC<Props> = ({title, img, description, category}) => {
   const shortDescription = sliceDescription(description)
 
   const image = img ? img : defaultImg
 
   return (
-    <Card maxW='sm'>
-      <CardBody>
-        <Center>
-          <Image
-            src={image}
-            alt='Book img'
-            borderRadius='lg'
-          />
-        </Center>
+      <Card maxW='sm'>
+        <CardBody>
+          <Center>
+            <Image
+              src={image}
+              alt='Book img'
+              borderRadius='lg'
+            />
+          </Center>
 
-        <Stack mt='6' spacing='3'>
-          <Heading size='sm'>{title}</Heading>
-          <Text fontSize='md'>{shortDescription}</Text>
-        </Stack>
-      </CardBody>
-    </Card>
+          <Stack mt='6' spacing='3'>
+            <Heading size='sm'>{title}</Heading>
+            <Text fontSize='md'>{shortDescription}</Text>
+            <Text fontSize='md'>category: {category ? category[0] : ''}</Text>
+          </Stack>
+        </CardBody>
+      </Card>
   );
 };
