@@ -7,13 +7,16 @@ type Props = {
   title: string,
   description: string
   img: string
-  category?: string[]
+  categories?: string[]
+  authors?: string[]
 }
 
-export const Book: FC<Props> = ({title, img, description, category}) => {
+export const Book: FC<Props> = ({title, img, description, categories, authors}) => {
   const shortDescription = sliceDescription(description)
 
   const image = img ? img : defaultImg
+  const authorsString = authors?.map(a => `${a}`).join(', ')
+  const category = categories ? `Category: ${categories[0]}` : ''
 
   return (
       <Card maxW='sm'>
@@ -28,8 +31,9 @@ export const Book: FC<Props> = ({title, img, description, category}) => {
 
           <Stack mt='6' spacing='3'>
             <Heading size='sm'>{title}</Heading>
+            <Text fontSize='md'>{authorsString && `Authors: ${authorsString}`}</Text>
+            <Text fontSize='md'>{category}</Text>
             <Text fontSize='md'>{shortDescription}</Text>
-            <Text fontSize='md'>category: {category ? category[0] : ''}</Text>
           </Stack>
         </CardBody>
       </Card>

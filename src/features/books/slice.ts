@@ -10,7 +10,7 @@ const initialState: IBooksInitState = {
   items: [],
   searchParams: {
     searchValue: '',
-    startIndex: 20,
+    startIndex: 0,
     maxResults: 20,
     category: '',
     orderBy: 'relevance'
@@ -39,13 +39,15 @@ const slice = createSlice({
     setCategory: (state, action: PayloadAction<string>) => {
       state.searchParams.category = action.payload
     },
+    setOrderBy: (state, action: PayloadAction<'relevance' | 'newest'>) => {
+      state.searchParams.orderBy = action.payload
+    },
   }
 })
 
 export const fetchBooks = createAsyncThunk(
   'books/fetch',
   async (_, {dispatch, getState}) => {
-    console.log('fetch')
     const state = getState() as RootStateType
 
     const {searchValue, category, startIndex, ...rest} = state.books.searchParams
@@ -61,8 +63,10 @@ export const fetchBooks = createAsyncThunk(
       }
 
       if (!startIndex) {
+        console.log(startIndex)
         dispatch(setBooks(res.data))
       } else {
+        console.log('showMore')
         dispatch(showMore(res.data.items))
       }
 
@@ -77,4 +81,4 @@ export const fetchBooks = createAsyncThunk(
 )
 
 export const booksReducer = slice.reducer
-export const {setSearchValue, setBooks, showMore, setStartIndex, setCategory} = slice.actions
+export const {setSearchValue, setBooks, showMore, setStartIndex, setCategory, setOrderBy} = slice.actions

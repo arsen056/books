@@ -1,3 +1,7 @@
+.label {
+  position: relative;
+}
+
 .search {
   width: 100%;
   outline: 0;
@@ -11,4 +15,16 @@
 
 .search:focus {
   border: 2px solid cadetblue;
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  height: 155%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button button {
+  height: 100%;
 }

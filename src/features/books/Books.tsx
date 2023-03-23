@@ -1,4 +1,4 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo} from 'react';
 import {useSelector} from "react-redux";
 import {selectBooks, selectIsLoading} from "common/selectors";
 import {Container} from "common/components/container";
@@ -19,7 +19,8 @@ export const Books = memo(() => {
     title={book.volumeInfo.title}
     img={book.volumeInfo.imageLinks?.thumbnail}
     description={book.volumeInfo.description}
-    category={book.volumeInfo.categories}
+    categories={book.volumeInfo.categories}
+    authors={book.volumeInfo.authors}
   />)
 
   const showMore = () => dispatch(fetchBooks())

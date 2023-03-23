@@ -1,27 +1,42 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import {fetchBooks, setSearchValue} from "features/books";
-import { useDebounce } from "common/hooks/useDebounce";
+
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import s from './Search.module.scss'
+import {Button} from '@chakra-ui/react'
 import {useSelector} from "react-redux";
-import {selectCategory} from "common/selectors";
+import {selectIsLoading, selectSearchValue} from "common/selectors";
 
 export const Search = () => {
-
   const dispatch = useAppDispatch()
 
-  const [value, setValue] = useState<string>('')
+  const searchValue = useSelector(selectSearchValue)
+  const isLoading = useSelector(selectIsLoading)
 
-  const searchValue = useDebounce<string>(value.trim());
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchValue(e.target.value))
+  }
 
-  const category = useSelector(selectCategory)
+  const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter' && searchValue) {
+      dispatch(fetchBooks())
+    }
+  }
+  const searchHandler = () => dispatch(fetchBooks())
 
-  useEffect(() => {
-    dispatch(setSearchValue(searchValue))
-    if (searchValue) dispatch(fetchBooks())
-  }, [searchValue, category])
+  return (
+    <label className={s.label}>
+      <input className={s.search} value={searchValue} onChange={onChange} onKeyDown={onEnter} placeholder='Enter value...'/>
+      <div className={s.button}>
+        <Button
+          isLoading={isLoading}
+          colorScheme='blue'
+          onClick={searchHandler}
+          isDisabled={!searchValue}
+        >
+          Search
+        </Button>
+      </div>
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
-
-  return <input className={s.search} value={value} onChange={onChange} placeholder='Enter value...' />
+    </label>)
 };

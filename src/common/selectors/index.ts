@@ -7,3 +7,4 @@ export const selectTotalItems = (state: RootStateType): number => state.books.to
 export const selectIsLoading = (state: RootStateType): boolean => state.app.isLoading
 export const selectError = (state: RootStateType): string => state.app.error
 export const selectCategory = (state: RootStateType): string => state.books.searchParams.category
+export const selectOrderBy = (state: RootStateType): 'relevance' | 'newest' => state.books.searchParams.orderBy
