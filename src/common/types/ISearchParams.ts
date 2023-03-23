@@ -1,4 +1,5 @@
 export interface ISearchParams {
+  q: string
   searchValue: string
   startIndex: number
   category: string

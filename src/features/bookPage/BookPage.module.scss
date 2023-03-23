@@ -1,0 +1,52 @@
+.bookPage {
+  font-size: 1.3em;
+}
+
+.bookPageFlex {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.imgWrapper {
+  padding: 2rem;
+  background-color: #FFD051;
+  max-width: 300px;
+  display: flex;
+  flex-basis: 20%;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.description {
+  margin: 3rem 0;
+  text-align: justify;
+  font-size: 0.6em;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  font-size: 1em;
+
+  .infoEl {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 767px) {
+  .bookPage {
+    font-size: 1em;
+  }
+
+  .info {
+    row-gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bookPageFlex {
+    flex-direction: column;
+    align-items: center;
+  }
+}

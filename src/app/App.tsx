@@ -1,17 +1,21 @@
 import React from 'react';
-import {Header} from "common/components/header";
-import {Books} from "features/books/";
-import {ProgressBar} from "common/components/progressBar";
-import {Snackbar} from "common/components/snackbar";
+import {ProgressBar} from 'common/components/progressBar';
+import {Snackbar} from 'common/components/snackbar';
+import {BrowserRouter} from 'react-router-dom';
+import {Routs} from 'common/routes';
+import {Header} from 'common/components/header';
 
 export function App() {
   return (
-    <div className="app">
-      <ProgressBar/>
-      <Header/>
-      <Books/>
-      <Snackbar/>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <ProgressBar/>
+        <Header/>
+        <Routs/>
+        <Snackbar/>
+
+      </div>
+    </BrowserRouter>
   );
 }
 

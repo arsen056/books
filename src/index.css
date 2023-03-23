@@ -1,8 +1,6 @@
-@import-normalize;
-
 html {
   overflow-x: hidden;
-
+  scroll-behavior: smooth;
   margin-right: calc(-1 * (100vw - 100%));
 }
 
